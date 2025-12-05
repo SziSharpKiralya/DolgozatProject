@@ -39,5 +39,12 @@ namespace DolgozatProject.Tests
 				}
 			);
 		}
+
+		[Test]
+		public void MegengedettPontszam()
+		{
+			dolgozat.PontFelvesz(23);
+			Assert.That(dolgozat.pontok[0], Is.EqualTo(23));
+		}
 	}
 }
