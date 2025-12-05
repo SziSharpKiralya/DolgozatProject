@@ -118,6 +118,73 @@ namespace DolgozatProject.Tests
 			Assert.That(dolgozat.Jeles, Is.EqualTo(1));
 		}
 
+		[Test]
+		public void ElegsegesHatarErtekek11()
+		{
+			dolgozat.PontFelvesz(49);
+			dolgozat.PontFelvesz(50);
+			dolgozat.PontFelvesz(60);
+			dolgozat.PontFelvesz(61);
+			Assert.That(dolgozat.Elegseges, Is.EqualTo(2));
+		}
 
+		[Test]
+		public void KozepesHatarErtekek12()
+		{
+			dolgozat.PontFelvesz(60);
+			dolgozat.PontFelvesz(61);
+			dolgozat.PontFelvesz(70);
+			dolgozat.PontFelvesz(71);
+			Assert.That(dolgozat.Kozepes, Is.EqualTo(2));
+		}
+
+		[Test]
+		public void JoHatarErtekek13()
+		{
+			dolgozat.PontFelvesz(70);
+			dolgozat.PontFelvesz(71);
+			dolgozat.PontFelvesz(80);
+			dolgozat.PontFelvesz(81);
+			Assert.That(dolgozat.Jo, Is.EqualTo(2));
+		}
+
+		[Test]
+		public void JelesHatarErtekek14()
+		{
+			dolgozat.PontFelvesz(80);
+			dolgozat.PontFelvesz(81);
+			dolgozat.PontFelvesz(100);
+			Assert.That(dolgozat.Jeles, Is.EqualTo(2));
+		}
+
+		[Test]
+		public void MindenJegybolSenkiSemIrtaMeg15()
+		{
+			Assert.Throws<ArgumentException>(() =>{dolgozat.Bukas();});
+			Assert.Throws<ArgumentException>(() => { dolgozat.Elegseges(); });
+			Assert.Throws<ArgumentException>(() => { dolgozat.Kozepes(); });
+			Assert.Throws<ArgumentException>(() => { dolgozat.Jo(); });
+			Assert.Throws<ArgumentException>(() => { dolgozat.Jeles(); });
+		}
+
+		[Test]
+		public void SenkiNemGyanus16()
+		{
+			dolgozat.PontFelvesz(56);
+			dolgozat.PontFelvesz(-1);
+			dolgozat.PontFelvesz(84);
+			dolgozat.PontFelvesz(97);
+			Assert.That(dolgozat.Gyanus(2), Is.EqualTo(false));
+		}
+
+		[Test]
+		public void ValakiGyanus17()
+		{
+			dolgozat.PontFelvesz(56);
+			dolgozat.PontFelvesz(-1);
+			dolgozat.PontFelvesz(84);
+			dolgozat.PontFelvesz(97);
+			Assert.That(dolgozat.Gyanus(1), Is.EqualTo(true));
+		}
 	}
 }

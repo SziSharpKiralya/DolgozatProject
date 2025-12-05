@@ -137,5 +137,20 @@
 
 			return szamoltakSzama;
 		}
+
+		public bool Gyanus(int kivalok)
+		{
+			if (pontok.Count == 0)
+			{
+				throw new ArgumentException("Ezt a dolgozatot senki sem írta meg!");
+			}
+
+			if (Jeles() > kivalok)
+			{
+				return true;
+			}
+
+			return false;
+		}
 	}
 }
