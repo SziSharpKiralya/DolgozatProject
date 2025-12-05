@@ -61,5 +61,81 @@
 
 			return bukottakSzama;
 		}
+
+		public int Elegseges()
+		{
+			if (pontok.Count == 0)
+			{
+				throw new ArgumentException("Ezt a dolgozatot senki sem írta meg!");
+			}
+
+			int szamoltakSzama = 0;
+			foreach (var tanulo in pontok)
+			{
+				if (!(tanulo == -1) && tanulo > 49 && tanulo < 61)
+				{
+					szamoltakSzama++;
+				}
+			}
+
+			return szamoltakSzama;
+		}
+
+		public int Kozepes()
+		{
+			if (pontok.Count == 0)
+			{
+				throw new ArgumentException("Ezt a dolgozatot senki sem írta meg!");
+			}
+
+			int szamoltakSzama = 0;
+			foreach (var tanulo in pontok)
+			{
+				if (!(tanulo == -1) && tanulo > 60 && tanulo < 71)
+				{
+					szamoltakSzama++;
+				}
+			}
+
+			return szamoltakSzama;
+		}
+
+		public int Jo()
+		{
+			if (pontok.Count == 0)
+			{
+				throw new ArgumentException("Ezt a dolgozatot senki sem írta meg!");
+			}
+
+			int szamoltakSzama = 0;
+			foreach (var tanulo in pontok)
+			{
+				if (!(tanulo == -1) && tanulo > 70 && tanulo < 81)
+				{
+					szamoltakSzama++;
+				}
+			}
+
+			return szamoltakSzama;
+		}
+
+		public int Jeles()
+		{
+			if (pontok.Count == 0)
+			{
+				throw new ArgumentException("Ezt a dolgozatot senki sem írta meg!");
+			}
+
+			int szamoltakSzama = 0;
+			foreach (var tanulo in pontok)
+			{
+				if (!(tanulo == -1) && tanulo > 80)
+				{
+					szamoltakSzama++;
+				}
+			}
+
+			return szamoltakSzama;
+		}
 	}
 }

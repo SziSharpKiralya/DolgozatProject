@@ -79,8 +79,8 @@ namespace DolgozatProject.Tests
 		[Test]
 		public void EgyTanuloBukott07()
 		{
+			dolgozat.PontFelvesz(-1);
 			dolgozat.PontFelvesz(23);
-			dolgozat.PontFelvesz(52);
 			dolgozat.PontFelvesz(76);
 			Assert.That(dolgozat.Bukas, Is.EqualTo(1));
 		}
@@ -102,5 +102,22 @@ namespace DolgozatProject.Tests
 			dolgozat.PontFelvesz(76);
 			Assert.That(dolgozat.Bukas, Is.EqualTo(0));
 		}
+
+		[Test]
+		public void MindenJegybolEgy10()
+		{
+			dolgozat.PontFelvesz(23);
+			dolgozat.PontFelvesz(52);
+			dolgozat.PontFelvesz(67);
+			dolgozat.PontFelvesz(75);
+			dolgozat.PontFelvesz(94);
+			Assert.That(dolgozat.Bukas, Is.EqualTo(1));
+			Assert.That(dolgozat.Elegseges, Is.EqualTo(1));
+			Assert.That(dolgozat.Kozepes, Is.EqualTo(1));
+			Assert.That(dolgozat.Jo, Is.EqualTo(1));
+			Assert.That(dolgozat.Jeles, Is.EqualTo(1));
+		}
+
+
 	}
 }
