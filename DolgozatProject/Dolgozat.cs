@@ -152,5 +152,29 @@
 
 			return false;
 		}
+
+		public bool Ervenytelen()
+		{
+			if (pontok.Count == 0)
+			{
+				throw new ArgumentException("Ezt a dolgozatot senki sem írta meg!");
+			}
+
+			int hianyzottakSzama = 0;
+			foreach (var tanulo in pontok)
+			{
+				if (tanulo == -1)
+				{
+					hianyzottakSzama++;
+				}
+			}
+
+			if (hianyzottakSzama >= pontok.Count / 2)
+			{
+				return true;
+			}
+
+			return false;
+		}
 	}
 }

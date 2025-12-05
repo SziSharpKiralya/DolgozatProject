@@ -186,5 +186,47 @@ namespace DolgozatProject.Tests
 			dolgozat.PontFelvesz(97);
 			Assert.That(dolgozat.Gyanus(1), Is.EqualTo(true));
 		}
+
+		[Test]
+		public void GyanusSenkiSemIrtaMeg18()
+		{
+			Assert.Throws<ArgumentException>(
+				() =>
+				{
+					dolgozat.Gyanus(3);
+				}
+			);
+		}
+
+		[Test]
+		public void ErvenytelenSenkiSemIrtaMeg19()
+		{
+			Assert.Throws<ArgumentException>(
+				() =>
+				{
+					dolgozat.Ervenytelen();
+				}
+			);
+		}
+
+		[Test]
+		public void MindenkiIrt20()
+		{
+			dolgozat.PontFelvesz(25);
+			dolgozat.PontFelvesz(55);
+			dolgozat.PontFelvesz(79);
+			dolgozat.PontFelvesz(84);
+			Assert.That(dolgozat.Ervenytelen(), Is.EqualTo(false));
+		}
+
+		[Test]
+		public void LegalabbFeleNemIrt21()
+		{
+			dolgozat.PontFelvesz(-1);
+			dolgozat.PontFelvesz(-1);
+			dolgozat.PontFelvesz(79);
+			dolgozat.PontFelvesz(84);
+			Assert.That(dolgozat.Ervenytelen(), Is.EqualTo(true));
+		}
 	}
 }
