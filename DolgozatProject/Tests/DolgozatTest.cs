@@ -41,10 +41,39 @@ namespace DolgozatProject.Tests
 		}
 
 		[Test]
-		public void MegengedettPontszam()
+		public void MegengedettPontszam03()
 		{
 			dolgozat.PontFelvesz(23);
 			Assert.That(dolgozat.pontok[0], Is.EqualTo(23));
+		}
+
+		[Test]
+		public void SenkiNemIrtaMeg04()
+		{
+			Assert.Throws<ArgumentException>(
+				() =>
+				{
+					dolgozat.MindenkiMegirta();
+				}
+			);
+		}
+
+		[Test]
+		public void ValakiNemIrtaMeg05()
+		{
+			dolgozat.PontFelvesz(23);
+			dolgozat.PontFelvesz(-1);
+			dolgozat.PontFelvesz(76);
+			Assert.That(dolgozat.MindenkiMegirta, Is.EqualTo(false));
+		}
+
+		[Test]
+		public void MindenkiMegirta05()
+		{
+			dolgozat.PontFelvesz(23);
+			dolgozat.PontFelvesz(52);
+			dolgozat.PontFelvesz(76);
+			Assert.That(dolgozat.MindenkiMegirta, Is.EqualTo(true));
 		}
 	}
 }
