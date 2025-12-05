@@ -42,5 +42,24 @@
 
 			return true;
 		}
+
+		public int Bukas()
+		{
+			if (pontok.Count == 0)
+			{
+				throw new ArgumentException("Ezt a dolgozatot senki sem írta meg!");
+			}
+
+			int bukottakSzama = 0;
+			foreach (var tanulo in pontok)
+			{
+				if (!(tanulo == -1) && tanulo < 50)
+				{
+					bukottakSzama++;
+				}
+			}
+
+			return bukottakSzama;
+		}
 	}
 }

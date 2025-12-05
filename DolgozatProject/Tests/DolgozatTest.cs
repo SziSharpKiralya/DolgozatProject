@@ -68,12 +68,39 @@ namespace DolgozatProject.Tests
 		}
 
 		[Test]
-		public void MindenkiMegirta05()
+		public void MindenkiMegirta06()
 		{
 			dolgozat.PontFelvesz(23);
 			dolgozat.PontFelvesz(52);
 			dolgozat.PontFelvesz(76);
 			Assert.That(dolgozat.MindenkiMegirta, Is.EqualTo(true));
+		}
+
+		[Test]
+		public void EgyTanuloBukott07()
+		{
+			dolgozat.PontFelvesz(23);
+			dolgozat.PontFelvesz(52);
+			dolgozat.PontFelvesz(76);
+			Assert.That(dolgozat.Bukas, Is.EqualTo(1));
+		}
+
+		[Test]
+		public void KettoTanuloBukott08()
+		{
+			dolgozat.PontFelvesz(23);
+			dolgozat.PontFelvesz(46);
+			dolgozat.PontFelvesz(76);
+			Assert.That(dolgozat.Bukas, Is.EqualTo(2));
+		}
+
+		[Test]
+		public void SenkiSemBukott09()
+		{
+			dolgozat.PontFelvesz(51);
+			dolgozat.PontFelvesz(52);
+			dolgozat.PontFelvesz(76);
+			Assert.That(dolgozat.Bukas, Is.EqualTo(0));
 		}
 	}
 }
